@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<missionVehicles>
+    <variants>
+        <mission type="harvest">
+            <variant name="GRAIN" fruitTypeCategories="GRAINHEADER" fillTypes="cotton potato"/> <!-- this is just a sample to show you what you can do-->
+            <variant name="COTTON" fruitTypes="COTTON"/> <!-- to enter multiple fruitTypes separate them with one space-->
+        </mission>
+        <mission type="sow">
+            <variant name="TODO" fruitTypeCategories="TODO"/> <!-- if you need to you could also add fillTypes="" as well-->
+        </mission>
+	</variants>
+
+    <mission type="harvest">
+        <!-- grainMission -->
+        <group fieldSize="small" variant="GRAIN">
+            <vehicle filename="$data/vehicles/deutzFahr/topLiner4090/topLiner4090.xml" /> <!-- combine -->
+            <vehicle filename="$data/vehicles/deutzFahr/header4090/header4090.xml"/> <!-- header -->
+            <vehicle filename="$data/vehicles/deutzFahr/header4090Trailer/header4090Trailer.xml"/> <!-- headerTrailer -->
+            <vehicle filename="$data/vehicles/masseyFerguson/series5S/series5S.xml" > <!-- tractor -->
+                <configuration name="motor" id="4" />
+            </vehicle>
+            <vehicle filename="$data/vehicles/welger/dk115/dk115.xml" /> <!-- trailer -->
+            <vehicle filename="$data/vehicles/welger/dk115/dk115.xml" /> <!-- trailer -->
+        </group>
+
+        <group fieldSize="small" variant="GRAIN">
+        </group>
+        
+        <group fieldSize="medium" variant="GRAIN">
+        </group>
+        
+        <group fieldSize="large" variant="GRAIN">
+        </group>
+
+        <!-- sugarBeetMission -->
+        <group fieldSize="small" variant="SUGARBEET">
+        </group>
+
+        <group fieldSize="medium" variant="SUGARBEET">
+        </group>
+
+        <group fieldSize="large" variant="SUGARBEET">
+        </group>
+        
+        <!-- maizeMission and sunFlowerMission -->
+        <group fieldSize="small" variant="MAIZE">
+        </group>
+        <group fieldSize="medium" variant="MAIZE">
+        </group>
+        <group fieldSize="large" variant="MAIZE">
+        </group>
+
+        <!-- potatoMission -->
+        <group fieldSize="small" variant="POTATO">
+        </group>
+        
+        <group fieldSize="medium" variant="POTATO">
+        </group>
+
+        <group fieldSize="large" variant="POTATO">
+        </group>
+
+        <!-- cottonMission -->
+        <group fieldSize="small" variant="COTTON">
+        </group>
+
+        <group fieldSize="medium" variant="COTTON">
+        </group>
+        
+        <group fieldSize="large" variant="COTTON">
+        </group>
+        
+        <!-- sugarCaneMission -->
+        <group fieldSize="small" variant="SUGARCANE">
+        </group>
+
+        <group fieldSize="medium" variant="SUGARCANE">
+        </group>
+
+        <group fieldSize="large" variant="SUGARCANE">
+        </group>
+    </mission>
+
+    <mission type="plow">
+        <group fieldSize="small">
+        </group>
+        
+        <group fieldSize="medium">
+        </group>
+        
+        <group fieldSize="large">
+        </group>
+    </mission>
+
+    <mission type="sow">
+    <!-- grainMission -->
+        <group fieldSize="small" variant="GRAIN">
+        </group>
+        
+        <group fieldSize="medium" variant="GRAIN">
+        </group>
+        
+        <group fieldSize="large" variant="GRAIN">
+        </group>
+        
+    <!-- maizeMission -->
+        <group fieldSize="small" variant="MAIZE">
+        </group>
+        
+        <group fieldSize="medium" variant="MAIZE">
+        </group>
+        
+        <group fieldSize="large" variant="MAIZE">
+        </group>
+        
+    <!-- sugarBeetMission -->
+        <group fieldSize="small" variant="SUGARBEET">
+        </group>
+        
+        <group fieldSize="medium" variant="SUGARBEET">
+        </group>
+        
+        <group fieldSize="large" variant="SUGARBEET">
+        </group>
+        
+    <!-- sugarCaneMission -->
+        <group fieldSize="small" variant="SUGARCANE">
+        </group>
+
+        <group fieldSize="medium" variant="SUGARCANE">
+        </group>
+
+        <group fieldSize="large" variant="SUGARCANE">
+        </group>
+
+    <!-- potatoMission -->
+        <group fieldSize="small" variant="POTATO">
+        </group>
+
+        <group fieldSize="medium" variant="POTATO">
+        </group>
+
+        <group fieldSize="large" variant="POTATO">
+        </group>
+
+    <!-- cottonMission -->
+        <group fieldSize="small" variant="COTTON">
+        </group>
+        
+        <group fieldSize="medium" variant="COTTON">
+        </group>
+        
+        <group fieldSize="large" variant="COTTON">
+        </group>
+    </mission>
+
+    <mission type="weed">
+        <group fieldSize="small">
+        </group>
+
+        <group fieldSize="medium">
+        </group>
+
+        <group fieldSize="large">
+        </group>
+    </mission>
+
+    <mission type="fertilize">
+        <group fieldSize="small">
+        </group>
+
+        <group fieldSize="medium">
+        </group>
+
+        <group fieldSize="large">
+        </group>
+    </mission>
+
+    <mission type="spray">
+        <group fieldSize="small">
+        </group>
+        
+        <group fieldSize="medium">
+        </group>
+        
+        <group fieldSize="large">
+        </group>
+    </mission>
+
+    <mission type="cultivate">
+        <group fieldSize="small">
+        </group>
+        
+        <group fieldSize="medium">
+        </group>
+        
+        <group fieldSize="large">
+        </group>
+    </mission>
+
+    <mission type="mow_bale">
+        <group fieldSize="small" variant="HAY">
+        </group>
+        
+        <group fieldSize="medium" variant="HAY">
+        </group>
+        
+        <group fieldSize="large" variant="HAY">
+        </group>
+        
+        <group fieldSize="small" variant="SILAGE">
+        </group>
+        
+        <group fieldSize="medium" variant="SILAGE">
+        </group>
+
+        <group fieldSize="large" variant="SILAGE">
+        </group>
+    </mission>
+</missionVehicles>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="65">
+    <author>tn4799</author>
+    <version>1.0.0.0</version>
+
+    <title>
+        <en>Dynamic Mission Vehicles</en>
+        <de>Dynamische Missionsfahrzeuge</de>
+    </title>
+
+    <description>
+        <en>
+<![CDATA[This mod improves the selection of the mission vehicles.  
+It also make sure, that custom fruits gets the correct tools.
+It enables missions for every fruit type which has mission vehicles assigned.
+
+The mod contains mission vehicles that work for every earth fruit.
+
+In the folder sdk you can find instructions on how to prepare your map for this mod.]]>
+        </en>
+		<de>
+<![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels. 
+Außerdem bekommt man dadurch auch bei zusätzlich verbauten Früchten die passenden Fahrzeuge für die Missionen.
+Damit man auch Missionen für zusätzliche Fruchtarten bekommt, aktiviert der Mod die Missionen für alle Früchte, für die es auch passende Missionsfahrzeuge gibt.
+
+Für Erdfrüchte enthält dieser Mod Missionsfahrzeuge, die für jede Art von Erdfrucht funktionieren.
+
+Im Ordner sdk ist eine Anleitung, in der erklärt wird, wie man eine Map auf die Verwendung zusammen mit diesem Mod vorbereiten kann. ]]>
+		</de>
+    </description>
+
+    <iconFilename>modIcon.dds</iconFilename>
+
+    <multiplayer supported="true"/>
+
+    
+	<!-- just need to register the vehicles as store items so that they are useable as missionVehicles. But I hide them in the shop-->
+	<storeItems>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/evo290.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ft300.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ks754.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rexor6300.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rootster604.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ventor4150.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/keiler2.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/panther2.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rr6x45.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/tiger6S.xml"/>
+		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rrXL9.xml"/>
+	</storeItems>
+
+    <extraSourceFiles>
+        <sourceFile filename="src/DynamicMissionVehicles.lua"/>
+		<sourceFile filename="src/registerFruitTypeCategory.lua"/>
+    </extraSourceFiles>
+
+    <specializations>
+        <specialization name="FruitPreparerMultiFruit"	className="FruitPreparerMultiFruit"		filename="src/specifications/FruitPreparerMultiFruit.lua"/>
+    </specializations>
+
+    <vehicleTypes>
+		<type name="combineCutterFruitPreparerMultiFruit" parent="combineDrivable" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="cutter" />
+
+			<specialization name="FruitPreparerMultiFruit"/>
+		</type>
+		<type name="cutterFruitPreparerMultiFruit" parent="cutter" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="randomlyMovingParts" />
+			
+			<specialization name="FruitPreparerMultiFruit"/>
+		</type>
+		<type name="attachableCombineCutterFruitPreparerMultiFruit" parent="attachableCombine" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="FruitPreparerMultiFruit"/>
+		</type>
+		<type name="fruitPreparerMultiFruit" parent="baseGroundTool" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+			<specialization name="turnOnVehicle" />
+
+			<specialization name="FruitPreparerMultiFruit"/>
+		</type>
+	</vehicleTypes>
+</modDesc>
