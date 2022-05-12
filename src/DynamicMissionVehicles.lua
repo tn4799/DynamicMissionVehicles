@@ -76,6 +76,11 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
 
             for _, fruitType in pairs(fruitTypes) do
 				DynamicMissionVehicles.variants[type][fruitType] = name
+				local fruit = g_fruitTypeManager:getFruitTypeByIndex(fruitType)
+
+				if type == "sow" then
+					print("added fruit type: ".. fruit.name .. "with variant " .. name)
+				end
             end
 
             j = j + 1
@@ -240,7 +245,16 @@ function DynamicMissionVehicles:loadBackupMissionVehicles(xmlFilename, baseDirec
 end
 
 function DynamicMissionVehicles:getVehicleVariant(superFunc)
-    local fruitType = self.field.fruitType
+    local fruitType = nil
+
+	if self.type.name == "harvest" then
+		fruitType = self.field.fruitType
+	elseif self.type.name == "sow"  then
+		fruitType = self.fruitType
+	else
+		Logging.error("MissionType is not supported by DynamicMissionVehicles")
+		return superFunc(self)
+	end
 
 	if DynamicMissionVehicles.variants[self.type.name][fruitType] ~= nil then
         return DynamicMissionVehicles.variants[self.type.name][fruitType]
