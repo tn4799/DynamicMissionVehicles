@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="65">
+<modDesc descVersion="64">
     <author>tn4799</author>
     <version>1.0.0.0</version>
 
@@ -18,7 +18,7 @@ The mod contains mission vehicles that work for every earth fruit.
 
 In the folder sdk you can find instructions on how to prepare your map for this mod.
 
-For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.]]>]]>
+For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.]]>
         </en>
 		<de>
 <![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels. 
@@ -36,7 +36,6 @@ Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href=
 
     <multiplayer supported="true"/>
 
-    
 	<!-- just need to register the vehicles as store items so that they are useable as missionVehicles. But I hide them in the shop-->
 	<storeItems>
 		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/evo290.xml"/>
