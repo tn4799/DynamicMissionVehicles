@@ -21,8 +21,7 @@ function DynamicMissionVehicles:loadMapData(xmlFile)
 end
 
 function DynamicMissionVehicles:loadVariants(xmlFilename)
-	print("xmlFilename: " .. xmlFilename)
-    local xmlFile = XMLFile.load("MissionVehicles", xmlFilename)
+	local xmlFile = XMLFile.load("MissionVehicles", xmlFilename)
 
     if not xmlFile then
 		Logging.xmlError(xmlFilename, "File could not be opened")
@@ -49,7 +48,6 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
 
         if type ~= nil then
             DynamicMissionVehicles.variants[type] = {}
-			print("type added: " .. type)
         end
 
         local j = 0
@@ -77,10 +75,7 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
             end
 
             for _, fruitType in pairs(fruitTypes) do
-				print("added fruitType: " .. tostring(fruitType))
-
-                DynamicMissionVehicles.variants[type][fruitType] = name
-                local fruit = g_fruitTypeManager:getFruitTypeByIndex(fruitType)
+				DynamicMissionVehicles.variants[type][fruitType] = name
             end
 
             j = j + 1
@@ -107,10 +102,8 @@ function DynamicMissionVehicles:activateMissions()
 
 		if activateMission then
 			fruitType.useForFieldJob = true
-			print("activate mission for " .. fruitType.name)
 		else
 			fruitType.useForFieldJob = false
-			print("deactivate mission for " .. fruitType.name)
 		end
 	end
 end
