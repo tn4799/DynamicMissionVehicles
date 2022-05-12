@@ -10,7 +10,7 @@ function DynamicMissionVehicles:loadMapData(xmlFile)
     local path = getXMLString(xmlFile, "map.missionVehicles#filename")
 
 	if path ~= nil then
-		path = Utils.getFilename(path, g_currentMission.baseDirectory)
+		path = Utils.getFilename(path, g_currentMission.missionInfo.baseDirectory)
 
 		if path ~= nil then
 			DynamicMissionVehicles:loadVariants(path)
@@ -21,6 +21,7 @@ function DynamicMissionVehicles:loadMapData(xmlFile)
 end
 
 function DynamicMissionVehicles:loadVariants(xmlFilename)
+	print("xmlFilename: " .. xmlFilename)
     local xmlFile = XMLFile.load("MissionVehicles", xmlFilename)
 
     if not xmlFile then
@@ -48,6 +49,7 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
 
         if type ~= nil then
             DynamicMissionVehicles.variants[type] = {}
+			print("type added: " .. type)
         end
 
         local j = 0
@@ -75,9 +77,10 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
             end
 
             for _, fruitType in pairs(fruitTypes) do
+				print("added fruitType: " .. tostring(fruitType))
+
                 DynamicMissionVehicles.variants[type][fruitType] = name
                 local fruit = g_fruitTypeManager:getFruitTypeByIndex(fruitType)
-                fruit.useForFieldJob = true
             end
 
             j = j + 1
@@ -85,6 +88,31 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
 
         i = i + 1
     end
+
+	self:activateMissions()
+end
+
+function DynamicMissionVehicles:activateMissions()
+	local fruitTypes = g_fruitTypeManager:getFruitTypes()
+
+	for _, fruitType in ipairs(fruitTypes) do
+		local activateMission = true
+
+		for type, _ in pairs(DynamicMissionVehicles.variants) do
+			if DynamicMissionVehicles.variants[type][fruitType.index] == nil then
+				activateMission = false
+				break
+			end
+		end
+
+		if activateMission then
+			fruitType.useForFieldJob = true
+			print("activate mission for " .. fruitType.name)
+		else
+			fruitType.useForFieldJob = false
+			print("deactivate mission for " .. fruitType.name)
+		end
+	end
 end
 
 function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
@@ -102,7 +130,6 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
         local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
         local baseDirectory = g_modsDirectory .. DynamicMissionVehicles.modName .. "/"
         local returnValue = DynamicMissionVehicles.loadBackupMissionVehicles(self, path, baseDirectory)
-        g_currentMission.baseDirectory = tmp
 
         return returnValue
     end
@@ -222,7 +249,7 @@ end
 function DynamicMissionVehicles:getVehicleVariant(superFunc)
     local fruitType = self.field.fruitType
 
-    if DynamicMissionVehicles.variants[self.type.name][fruitType] ~= nil then
+	if DynamicMissionVehicles.variants[self.type.name][fruitType] ~= nil then
         return DynamicMissionVehicles.variants[self.type.name][fruitType]
     else
         return superFunc(self)
