@@ -185,9 +185,10 @@ end
 
 function FruitPreparerMultiFruit:getIsRandomlyMovingPartActive(superFunc, part)
 	local retValue = superFunc(self, part)
+	local spec = self["spec_" .. FruitPreparerMultiFruit.modName .. ".FruitPreparerMultiFruit"]
 
 	if part.moveOnlyIfPreparerCut then
-		retValue = retValue and self.spec_fruitPreparer.isWorking
+		retValue = retValue and spec.isWorking
 	end
 
 	return retValue
