@@ -230,7 +230,11 @@ function FruitPreparerMultiFruit:processFruitPreparerArea(workArea)
 		FSDensityMapUtil.getFieldStatusAsync(xs, zs, xw, zw, xh, zh, self.onFieldDataUpdateFinished, self)
 	end
 
-	local area = FSDensityMapUtil.updateFruitPreparerArea(spec.fruitType, xs,zs, xw,zw, xh,zh, dxs,dzs, dxw,dzw, dxh,dzh)
+	local area = 0
+
+	if spec.fruitType ~= FruitType.UNKNOWN then
+		area = FSDensityMapUtil.updateFruitPreparerArea(spec.fruitType, xs,zs, xw,zw, xh,zh, dxs,dzs, dxw,dzw, dxh,dzh)
+	end
 
 	if area > 0 then
 		spec.isWorking = true
@@ -260,7 +264,7 @@ function FruitPreparerMultiFruit:onFieldDataUpdateFinished(data)
 						if desc ~= nil then
 							if self.setAIFruitRequirements ~= nil then
 								self:setAIFruitRequirements(desc.index, desc.minPreparingGrowthState, desc.maxPreparingGrowthState)
-								local aiUsePreparedState = Utils.getNoNil(getXMLBool(self.xmlFile, "vehicle.fruitPreparer#aiUsePreparedState"), self.spec_cutter ~= nil or self.spec_CutterMultiFruit ~= nil or self["spec_" .. FruitPreparerMultiFruit.modName .. ".CutterMultiFruit"] ~= nil)
+								local aiUsePreparedState = Utils.getNoNil(self.xmlFile:getBool("vehicle.fruitPreparer#aiUsePreparedState"), self.spec_cutter ~= nil or self.spec_CutterMultiFruit ~= nil or self["spec_" .. FruitPreparerMultiFruit.modName .. ".CutterMultiFruit"] ~= nil)
 								if aiUsePreparedState then
 									self:addAIFruitRequirement(desc.index, desc.preparedGrowthState, desc.preparedGrowthState)
 								end

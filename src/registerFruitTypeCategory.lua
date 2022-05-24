@@ -1,11 +1,10 @@
 -- registers a new fruitTypeCategory for earth fruits
 function register()
-    print("register fruitTypeCategory 'EARTHFRUITS'")
     local categoryName = "EARTHFRUITS"
     local fruitTypeCategoryIndex = g_fruitTypeManager:addFruitTypeCategory(categoryName, false)
     local fillTypeCategoryIndex = g_fillTypeManager:addFillTypeCategory(categoryName, false)
 
-    for fruitTypeIndex, fruitTypeData in pairs(g_fruitTypeManager.fruitTypes) do
+    for _, fruitTypeData in pairs(g_fruitTypeManager.fruitTypes) do
         if fruitTypeData ~= nil then
             local minHarvestingGrowthState = fruitTypeData.minHarvestingGrowthState
             local minPreparingGrowthState = fruitTypeData.minPreparingGrowthState
@@ -19,8 +18,7 @@ function register()
                 local fruitType = g_fruitTypeManager:getFruitTypeByName(name)
 
                 if fruitType ~= nil then
-                    print(string.format("add fruitType %s to category", fruitType.name))
-                    if not g_fruitTypeManager:addFruitTypeToCategory(fruitType.index, fruitTypeCategoryIndex) and not g_fillTypeManager:addFillTypeToCategory(fruitType.fillType.index, fillTypeCategoryIndex) then
+                    if not g_fruitTypeManager:addFruitTypeToCategory(fruitType.index, fruitTypeCategoryIndex) or not g_fillTypeManager:addFillTypeToCategory(fruitType.fillType.index, fillTypeCategoryIndex) then
                         print("Warning: Could not add fruitType '" .. tostring(name) .. "' to fruitTypeCategory '" .. tostring(categoryName) .. "'!")
                     end
                 else

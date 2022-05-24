@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="fruitPreparerMultiFruit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>KS 75-4 Multifruit</name>
+        <specs>
+            <neededPower>65</neededPower>
+            <workingWidth>3.2</workingWidth>
+            <combination filterCategory="weights" filterSpec="weight" filterSpecMin="500" filterSpecMax="600"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_haulmTopperPotato</function>
+        </functions>
+        <image>$data/vehicles/grimme/ks754/store_ks754.png</image>
+        <price>10000</price>
+        <lifetime>600</lifetime>
+        <brand>GRIMME</brand>
+        <category>potatoHarvesting</category>
+        <showInStore>true</showInStore>
+        <rotation>180</rotation>
+        <shopTranslationOffset>0 -0.183 0</shopTranslationOffset>
+        <shopRotationOffset>0.531 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>681472</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>109056</indexBufferMemoryUsage>
+        <textureMemoryUsage>720896</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_haulmTopper</typeDesc>
+        <filename>$data/vehicles/grimme/ks754/ks754.i3d</filename>
+        <size width="4" length="2.5" lengthOffset="0.15" />
+        <speedLimit value="15" />
+        <components>
+            <component centerOfMass="0 0.5 0" solverIterationCount="10" mass="922" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+        <mapHotspot type="TOOL" />
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0">
+                <wheels>
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/T510/165R15.xml" isLeft="true"  hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.3" repr="wheelLeft"  initialCompression="15" suspTravel="0.1" spring="16" damper="80" yOffset="0.02"/>
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/T510/165R15.xml" isLeft="false" hasTireTracks="true" hasParticles="true" >
+                        <physics restLoad="0.3" repr="wheelRight" initialCompression="15" suspTravel="0.1" spring="16" damper="80" yOffset="0.02"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimColor material="18">SHARED_WHITE1</rimColor>
+
+        <hubs>
+            <color0>GRIMME_RED1</color0>
+            <color1 material="3">SHARED_GREY3</color1>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="true"  scale="0.1 0.15 0.15" />
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n5_1.xml" isLeft="false" scale="0.1 0.15 0.15" />
+        </hubs>
+    </wheels>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="implement" topReferenceNode="topReferenceNode" upperRotationOffset="0" lowerRotationOffset="20" lowerTransLimitScale="0 1 0">
+                <distanceToGround lower="0.5" upper="0.8" />
+            </inputAttacherJoint>
+            <inputAttacherJoint node="attacherJointBack" jointType="implement" topReferenceNode="topReferenceNodeBack" upperRotationOffset="5" lowerRotationOffset="23" lowerTransLimitScale="0 1 0">
+                <distanceToGround lower="0.4" upper="0.8" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <brakeForce force="0.07"/>
+        <support animationName="moveSupport" />
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="electric" node="electric" adapterNode="electric_connector" length="0.8" diameter="0.007" straighteningFactor="0.5">
+            <objectChange node="electric_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="2" type="electric" node="electric2" adapterNode="electric2_connector" length="0.8" diameter="0.007" straighteningFactor="0.5">
+            <objectChange node="electric2_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerConsumer ptoRpm="470" neededMinPtoPower="25" neededMaxPtoPower="25"/>
+
+    <powerTakeOffs>
+        <input inputAttacherJointIndices="1" inputNode="pto" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidW.xml" />
+        <input inputAttacherJointIndices="2" inputNode="ptoBack" aboveAttacher="true" filename="$data/shared/assets/powerTakeOffs/walterscheidW.xml" />
+    </powerTakeOffs>
+
+    <lights>
+        <sharedLight linkNode="rearLight01" filename="$data/shared/assets/lights/lizard/rearLight01.xml" />
+        <sharedLight linkNode="rearLight02" filename="$data/shared/assets/lights/lizard/rearLight01.xml" />
+        <sharedLight linkNode="sideMarker05White01" filename="$data/shared/assets/lights/lizard/sideMarker05White.xml" />
+        <sharedLight linkNode="sideMarker05White02" filename="$data/shared/assets/lights/lizard/sideMarker05White.xml" />
+        <sharedLight linkNode="yellowRectangle_01" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_02" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_03" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+        <sharedLight linkNode="yellowRectangle_04" filename="$data/shared/assets/reflectors/lizard/yellowRectangle_01.xml" />
+
+        <realLights>
+            <high>
+                <light node="frontLightHigh" lightTypes="0" />
+                <light node="backLightsHigh" lightTypes="0" />
+                <brakeLight node="backLightsHigh" />
+            </high>
+        </realLights>
+    </lights>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode" threshold="0.2" />
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="fruitPreparer" functionName="processFruitPreparerArea" disableBackwards="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight" />
+            <groundReferenceNode index="1" />
+            <onlyActiveWhenLowered value="true"/>
+        </workArea>
+    </workAreas>
+
+    <animations>
+        <animation name="moveSupport">
+            <part node="supportArm" startTime="0" duration="0.5" startTrans="0 0 0" endTrans="0 -0.4 0" />
+
+            <sound template="metalClose" startTime="0.01" direction="-1" volumeScale="1" pitchScale="1.8"/>
+            <sound template="slideOpen"  startTime="0.01" endTime="0.99" volumeScale="3" pitchScale="1.8" fadeIn="0.05"/>
+        </animation>
+    </animations>
+
+    <fruitPreparer fruitTypeCategories="EARTHFRUITS">
+        <animationNodes>
+            <animationNode node="drum" rotAxis="1" rotSpeed="3000" turnOnFadeTime="2" turnOffFadeTime="5" />
+        </animationNodes>
+        <sounds>
+            <work template="DEFOLIATOR_01" linkNode="0>" />
+        </sounds>
+    </fruitPreparer>
+
+    <workParticles>
+        <particle>
+            <node node="soilHarvestingEmitter" refNodeIndex="1" particleType="PREPARE_FRUIT" fillType="potato" />
+        </particle>
+    </workParticles>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack" />
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack" />
+        <collisionTrigger node="aiCollisionNode" width="3.6" height="1.6"/>
+        <needsRootAlignment value="false"/>
+        <allowTurnBackward value="true"/>
+        <overlap value="0"/>
+        <agentAttachment width="3.4" height="1.5" length="2" lengthOffset="0.2"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode minX="-1.73" maxX="1.73" minZ="-0.8" maxZ="0.7" yOffset="0.5" />
+    </foliageBending>
+
+    <baseMaterial>
+        <material name="ks754_mat" baseNode="ks754_vis">
+            <shaderParameter name="colorMat0" value="GRIMME_RED1"/>
+        </material>
+    </baseMaterial>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="ks754_main_component1" node="0>" />
+        <i3dMapping id="ks754_vis" node="0>0" />
+        <i3dMapping id="wheelLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|0|1" />
+        <i3dMapping id="rearLight01" node="0>0|1|0|0" />
+        <i3dMapping id="rearLight02" node="0>0|1|0|1" />
+        <i3dMapping id="sideMarker05White01" node="0>0|1|0|2" />
+        <i3dMapping id="sideMarker05White02" node="0>0|1|0|3" />
+        <i3dMapping id="yellowRectangle_01" node="0>0|1|0|4" />
+        <i3dMapping id="yellowRectangle_02" node="0>0|1|0|5" />
+        <i3dMapping id="yellowRectangle_03" node="0>0|1|0|6" />
+        <i3dMapping id="yellowRectangle_04" node="0>0|1|0|7" />
+        <i3dMapping id="frontLightHigh" node="0>0|1|1|0" />
+        <i3dMapping id="backLightsHigh" node="0>0|1|2|0" />
+        <i3dMapping id="attacherJoint" node="0>0|2|0" />
+        <i3dMapping id="topReferenceNode" node="0>0|2|1" />
+        <i3dMapping id="pto" node="0>0|2|2" />
+        <i3dMapping id="supportArm" node="0>0|2|3" />
+        <i3dMapping id="attacherJointBack" node="0>0|2|4" />
+        <i3dMapping id="topReferenceNodeBack" node="0>0|2|5" />
+        <i3dMapping id="ptoBack" node="0>0|2|6" />
+        <i3dMapping id="electric" node="0>0|2|7|0" />
+        <i3dMapping id="electric_detached" node="0>0|2|7|0|0" />
+        <i3dMapping id="electric_connector" node="0>0|2|7|0|0|0" />
+        <i3dMapping id="electric2" node="0>0|2|7|1" />
+        <i3dMapping id="electric2_detached" node="0>0|2|7|1|0" />
+        <i3dMapping id="electric2_connector" node="0>0|2|7|1|0|0" />
+        <i3dMapping id="drum" node="0>0|3|0" />
+        <i3dMapping id="workAreaStart" node="0>0|4|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|4|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|4|2" />
+        <i3dMapping id="groundReferenceNode" node="0>0|4|3" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|5|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|5|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|5|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|5|3" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|5|4" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|5|5" />
+        <i3dMapping id="aiCollisionNode" node="0>0|5|6" />
+        <i3dMapping id="soilHarvestingEmitter" node="0>0|6|0" />
+    </i3dMappings>
+</vehicle>
