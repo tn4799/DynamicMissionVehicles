@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="64">
+<modDesc descVersion="66">
     <author>tn4799</author>
     <version>1.0.0.0</version>
 
@@ -38,17 +38,17 @@ Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href=
 
 	<!-- just need to register the vehicles as store items so that they are useable as missionVehicles. But I hide them in the shop-->
 	<storeItems>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/evo290.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ft300.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ks754.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rexor6300.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rootster604.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ventor4150.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/keiler2.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/panther2.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rr6x45.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/tiger6S.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rrXL9.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/evo290.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/ft300.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/ks754.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/rexor6300.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/rootster604.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/grimme/ventor4150.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/ropa/keiler2.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/ropa/panther2.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/ropa/rr6x45.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/ropa/tiger6S.xml"/>
+		<storeItem xmlFilename="vehicles/earthFruits/ropa/rrXL9.xml"/>
 	</storeItems>
 
     <extraSourceFiles>
