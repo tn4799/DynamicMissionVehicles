@@ -10,7 +10,7 @@
 
     <description>
         <en>
-<![CDATA[This mod improves the selection of the mission vehicles.  
+<![CDATA[This mod guarantees that you always get the correct vehicles for sow and harvest missions for every fruit. This is also true for additional fruits.
 It also make sure, that custom fruits gets the correct tools.
 It enables missions for every fruit type which has mission vehicles assigned.
 
@@ -21,7 +21,7 @@ In the folder sdk you can find instructions on how to prepare your map for this 
 For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.]]>
         </en>
 		<de>
-<![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels. 
+<![CDATA[Dieser Mod garantiert, dass man für jede Frucht bei Ernte- und Sähmissionen immer die passenden Fahrzeuge bekommt, auch bei Zusatzfrüchten. 
 Außerdem bekommt man dadurch auch bei zusätzlich verbauten Früchten die passenden Fahrzeuge für die Missionen.
 Damit man auch Missionen für zusätzliche Fruchtarten bekommt, aktiviert der Mod die Missionen für alle Früchte, für die es auch passende Missionsfahrzeuge gibt.
 
