@@ -20,7 +20,7 @@
         <rotation>0</rotation>
         <brand>ROPA</brand>
         <category>beetVehicles</category>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <shopTranslationOffset>0 -0.031 0</shopTranslationOffset>
         <shopRotationOffset>-0.065 0 0</shopRotationOffset>
         <shopFoldingState>1</shopFoldingState>

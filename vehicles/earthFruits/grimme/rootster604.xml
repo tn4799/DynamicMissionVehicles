@@ -21,7 +21,7 @@
         <rotation>0</rotation>
         <brand>GRIMME</brand>
         <category>beetHarvesting</category>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <shopTranslationOffset>0 0.074 0</shopTranslationOffset>
         <shopRotationOffset>-1.074 0 0</shopRotationOffset>
         <vertexBufferMemoryUsage>6634240</vertexBufferMemoryUsage>

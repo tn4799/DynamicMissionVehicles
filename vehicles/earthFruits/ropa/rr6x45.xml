@@ -17,7 +17,7 @@
         <rotation>0</rotation>
         <brand>ROPA</brand>
         <category>beetHarvesting</category>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <shopTranslationOffset>0 -0.043 0</shopTranslationOffset>
         <shopRotationOffset>-0.615 0 0</shopRotationOffset>
         <vertexBufferMemoryUsage>6825984</vertexBufferMemoryUsage>

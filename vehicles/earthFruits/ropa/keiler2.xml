@@ -20,7 +20,7 @@
         <rotation>0</rotation>
         <brand>ROPA</brand>
         <category>potatoHarvesting</category>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <shopTranslationOffset>0 0.245 0</shopTranslationOffset>
         <shopRotationOffset>-0.093 0 0.493</shopRotationOffset>
         <vertexBufferMemoryUsage>7324928</vertexBufferMemoryUsage>

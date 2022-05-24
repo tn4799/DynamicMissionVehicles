@@ -17,7 +17,7 @@
         <lifetime>600</lifetime>
         <brand>GRIMME</brand>
         <category>potatoHarvesting</category>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <rotation>180</rotation>
         <shopTranslationOffset>0 -0.183 0</shopTranslationOffset>
         <shopRotationOffset>0.531 0 0</shopRotationOffset>

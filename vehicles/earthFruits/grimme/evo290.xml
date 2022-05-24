@@ -18,7 +18,7 @@
         <brand>GRIMME</brand>
         <category>potatoHarvesting</category>
         <shopLoadingDelay initial="0.2"/>
-        <showInStore>true</showInStore>
+        <showInStore>false</showInStore>
         <shopTranslationOffset>0 0.064 0</shopTranslationOffset>
         <shopRotationOffset>1.127 0 0.5</shopRotationOffset>
         <vertexBufferMemoryUsage>7331328</vertexBufferMemoryUsage>
