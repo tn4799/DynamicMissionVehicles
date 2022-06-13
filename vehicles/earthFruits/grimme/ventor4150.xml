@@ -21,12 +21,6 @@
         <shopTranslationOffset>0 -0.093 0</shopTranslationOffset>
         <shopRotationOffset>-0.037 0 0</shopRotationOffset>
         <shopFoldingTime>0.034</shopFoldingTime>
-        <vertexBufferMemoryUsage>15851776</vertexBufferMemoryUsage>
-        <indexBufferMemoryUsage>3083264</indexBufferMemoryUsage>
-        <textureMemoryUsage>15073280</textureMemoryUsage>
-        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
-        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
-        <audioMemoryUsage>448446</audioMemoryUsage>
     </storeData>
 
     <base>
