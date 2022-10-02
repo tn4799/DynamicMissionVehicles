@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="64">
+<modDesc descVersion="69">
     <author>tn4799</author>
-    <version>1.0.0.0</version>
+    <version>1.0.1.0</version>
 
     <title>
         <en>Dynamic Mission Vehicles</en>
@@ -18,7 +18,11 @@ The mod contains mission vehicles that work for every earth fruit.
 
 In the folder sdk you can find instructions on how to prepare your map for this mod.
 
-For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.]]>
+For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.
+
+Changelog:
+V1.0.1.0
+ - moved harvesting vehicles into separate mod and added it as a dependency]]>
         </en>
 		<de>
 <![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels. 
@@ -28,56 +32,19 @@ Damit man auch Missionen für zusätzliche Fruchtarten bekommt, aktiviert der Mo
 Für Erdfrüchte enthält dieser Mod Missionsfahrzeuge, die für jede Art von Erdfrucht funktionieren.
 
 Im Ordner sdk ist eine Anleitung, in der erklärt wird, wie man eine Map auf die Verwendung zusammen mit diesem Mod vorbereiten kann. 
-Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a> mit einem Issue.]]>
+Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a> mit einem Issue.
+
+Changelog:
+V1.0.1.0
+ - Erntefahrzeuge in einen extra Mod verschoben und diesen als Anhängigkeit eingefügt]]>
 		</de>
     </description>
+
+	<dependencies>
+		<dependency>FS22_MultiFruitHarvesterPack</dependency>
+	</dependencies>
 
     <iconFilename>modIcon.dds</iconFilename>
 
     <multiplayer supported="true"/>
-
-	<!-- just need to register the vehicles as store items so that they are useable as missionVehicles. But I hide them in the shop-->
-	<storeItems>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/evo290.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ft300.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ks754.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rexor6300.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/rootster604.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/grimme/ventor4150.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/keiler2.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/panther2.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rr6x45.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/tiger6S.xml"/>
-		<storeItem xmlFilename="vehicles/Erdfruechte/ropa/rrXL9.xml"/>
-	</storeItems>
-
-    <extraSourceFiles>
-        <sourceFile filename="src/DynamicMissionVehicles.lua"/>
-		<sourceFile filename="src/registerFruitTypeCategory.lua"/>
-    </extraSourceFiles>
-
-    <specializations>
-        <specialization name="FruitPreparerMultiFruit"	className="FruitPreparerMultiFruit"		filename="src/specifications/FruitPreparerMultiFruit.lua"/>
-    </specializations>
-
-    <vehicleTypes>
-		<type name="combineCutterFruitPreparerMultiFruit" parent="combineDrivable" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
-			<specialization name="cutter" />
-
-			<specialization name="FruitPreparerMultiFruit"/>
-		</type>
-		<type name="cutterFruitPreparerMultiFruit" parent="cutter" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
-			<specialization name="randomlyMovingParts" />
-			
-			<specialization name="FruitPreparerMultiFruit"/>
-		</type>
-		<type name="attachableCombineCutterFruitPreparerMultiFruit" parent="attachableCombine" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
-			<specialization name="FruitPreparerMultiFruit"/>
-		</type>
-		<type name="fruitPreparerMultiFruit" parent="baseGroundTool" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
-			<specialization name="turnOnVehicle" />
-
-			<specialization name="FruitPreparerMultiFruit"/>
-		</type>
-	</vehicleTypes>
 </modDesc>

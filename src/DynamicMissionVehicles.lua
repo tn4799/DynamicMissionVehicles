@@ -126,8 +126,7 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
         return superFunc(self, xmlFilename)
     else
         local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
-        local baseDirectory = g_modsDirectory .. DynamicMissionVehicles.modName .. "/"
-        local returnValue = DynamicMissionVehicles.loadBackupMissionVehicles(self, path, baseDirectory)
+        local returnValue = DynamicMissionVehicles.loadBackupMissionVehicles(self, path, g_modsDirectory)
 
         return returnValue
     end
