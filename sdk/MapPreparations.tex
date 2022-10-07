@@ -1,0 +1,97 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}		% ö,ä,ü und silbentrennung
+\hyphenpenalty=100000			% keine Silbentrennung => bessere Lesbarkeit
+\usepackage[onehalfspacing]{setspace}
+\usepackage{arydshln}
+
+\usepackage{amsmath, amsfonts, amssymb, gensymb, mathtools}
+
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+
+\usepackage[margin=3cm]{geometry}
+%==============================================================================
+%								bold mono-font
+%==============================================================================
+\usepackage{bold-extra}
+%==============================================================================
+%								Colors
+%==============================================================================
+\usepackage{xcolor}
+\definecolor{pblue}{HTML}{4B89DC}		% XML
+\definecolor{pgreen}{HTML}{8CC051}		% Attribute
+\definecolor{pred}{HTML}{DB4455}		% Warning
+\definecolor{datei}{HTML}{F4A460}		%  Dateien
+
+\newcommand{\XML}[1]{\texttt{\textbf{\color{pblue} #1}}}
+\newcommand{\Attr}[1]{\texttt{\textbf{\color{pgreen} #1}}}
+\newcommand{\Datei}[1]{\texttt{\textbf{\color{datei} #1}}}
+%==============================================================================
+%								Icons
+%==============================================================================
+\usepackage[fixed]{fontawesome5}
+\newcommand{\icon}[1]{
+	\hspace{-2mm}
+	\faIcon[solid]{#1}
+	\hspace{-2mm}
+}
+\newcommand{\warning}{{\color{pred}\icon{exclamation-triangle}}}
+
+\title{Instructions for preparing a map}
+\date{}
+
+\begin{document}
+	\maketitle
+
+	\section*{1. Step}
+	Create a \Datei{missionVehicles.xml}. You can find an empty template in the folder \Datei{sdk}. This template has the basic structure of a \Datei{missionVehicles.xml} and the needed XML components for the compatibility with this mod.\\
+	Here is a little explanation of the components of the XML file:\\
+	\begin{tabular}{c|c|p{7cm}}
+		\textbf{XML component} & \textbf{Attributes} & \textbf{Description}\\
+		\hline
+		\XML{variants} & & This is the wrapping component that is needed for the compatibility with this mod. Everything inside this tag is loaded by the mod.\\
+		\hline
+		\XML{mission} & \Attr{type} & Describes the mission type for that you define the variants. At the moment only the mission types \texttt{harvest} and \texttt{sow} are supported.\\
+		\hline
+		\texttt{variant} & \texttt{name} & Defines the name of a new variant.\\
+		\hdashline
+		& \Attr{fruitTypes} & Defines the fruit types for that this variant is used.\\
+		\hdashline
+		& \Attr{fruitTypeCategories} & Defines the fruit type categories for which the variant should be used.
+		The category 'EARTHFRUITS' is registered by the mod and contains all ground fruits like potatos and sugar beet. Those fruits are automatically recognized.
+	\end{tabular}\\
+	\hspace{0.2cm}\\
+	Everything after this point will be loaded by the vanilla game.\\
+	\begin{tabular}{c|c|p{9cm}}
+		\textbf{XML-Component} & \textbf{Attributes} & \textbf{Description}\\
+		\hline
+		\XML{mission} & \Attr{type} & Define the mission type for which the groups should be used.\\
+		& & The value of \Attr{type} are the mission types. Those are: 'harvest', 'plow', 'sow', 'weed', 'fertilize', 'spray', 'cultivate', 'mow\_bale'\\
+		\hline
+		\XML{group} & & Defines a group of vehicles. One group will be offered as mission vehicles.\\
+		\hdashline
+		& \Attr{fieldSize} & Defines if the group should be used for small, medium or large fields.\\
+		& & Values: 'small', 'medium', large'\\
+		\hdashline
+		& \Attr{variant} &
+			Defines for which fruit types the group can be selected.
+			To ensure that the \Datei{missionVehicles.xml} is compatible with the base game and completely works without this mod the following \XML{variant}s have to be available:\\
+		& & For harvesting and sow missions 'GRAIN', 'MAIZE', 'SUGARBEET', 'POTATO', 'COTTON', 'SUGARCANE'\\
+		& & For mow and bale missions: 'HAY' and 'SILAGE'\\
+		\hline
+		\XML{vehicle} & \Attr{filename} & Defines the path to one mission vehicle. This vehicle must be registered as a store item.
+	\end{tabular}
+
+	\section*{2. Step}
+	Open the \Datei{map.xml} of your map and search for the entry \XML{missionVehicles}. If this entry isn't available then add the following line into your \Datei{map.xml}:\\
+	\XML{<missionVehicles } \Attr{filename}\texttt{="}\texttt{"} \XML{/>}\\
+	Now enter at \Attr{filename} the path to your own \Datei{missionVehicles.xml} starting at the root folder of your map. This is the location of your \Datei{modDesc.xml}. And don't forget to save your progress.
+
+	\section*{3. Step (optional)}
+	\warning This step could cause problems with mission vehicles if this mod isn't used.\\
+	If you want you can enable missions for fruit types. This can be achieved by opening the \Datei{fruitTypes.xml} of your map and for each fruit type where you want to activate field missions set the attribute \Attr{useForFieldJob} to \texttt{true}. Or in reverse: To deactivate missions set the value to \texttt{false}.\\
+	If you enable or disable missions for a fruit type this also decides if the AI-farmers plant this fruit type on their fields or not.
+\end{document}

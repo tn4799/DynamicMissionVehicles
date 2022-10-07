@@ -1,0 +1,98 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}		% ö,ä,ü und silbentrennung
+\hyphenpenalty=100000			% keine Silbentrennung => bessere Lesbarkeit
+\usepackage[onehalfspacing]{setspace}
+\usepackage{arydshln}
+
+\usepackage{amsmath, amsfonts, amssymb, gensymb, mathtools}
+
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+
+\usepackage[margin=3cm]{geometry}
+%==============================================================================
+%								bold mono-font
+%==============================================================================
+\usepackage{bold-extra}
+%==============================================================================
+%								Colors
+%==============================================================================
+\usepackage{xcolor}
+	\definecolor{pblue}{HTML}{4B89DC}		% XML
+	\definecolor{pgreen}{HTML}{8CC051}		% Attribute
+	\definecolor{pred}{HTML}{DB4455}		% Warning
+	\definecolor{datei}{HTML}{F4A460}		%  Dateien
+
+\newcommand{\XML}[1]{\texttt{\textbf{\color{pblue} #1}}}
+\newcommand{\Attr}[1]{\texttt{\textbf{\color{pgreen} #1}}}
+\newcommand{\Datei}[1]{\texttt{\textbf{\color{datei} #1}}}
+%==============================================================================
+%								Icons
+%==============================================================================
+\usepackage[fixed]{fontawesome5}
+\newcommand{\icon}[1]{
+	\hspace{-2mm}
+	\faIcon[solid]{#1}
+	\hspace{-2mm}
+}
+\newcommand{\warning}{{\color{pred}\icon{exclamation-triangle}}}
+
+\title{Anleitung für die Vorbereitung der Map}
+\date{}
+
+\begin{document}
+	\maketitle
+	\vspace{-10mm}
+	\section*{Schritt 1: benötigte Datei}
+		Erstelle eine \Datei{missionVehicles.xml}. Eine leere Vorlage finden sie im Ordner \Datei{sdk}. Diese Vorlage enthält die Grundstruktur, die für die Kompatibilität mit dieser Mod vorhanden sein müssen. Sollten diese nicht vorhanden sein, dann wird die Backup-Datei der Mod geladen.\\
+		Hier nochmal eine Übersicht über die XML-Komponenten:\\
+		\begin{tabular}{c|c|p{7cm}}
+			\textbf{XML-Komponente} & \textbf{Attribute} & \textbf{Beschreibung}\\
+			\hline
+			\XML{variants} & & Dies ist der übergreifende Tag, der für die Kompatibilität mit der Mod nötig ist. Alles innerhalb dieses Tags wird von der Mod geladen.\\
+			\hline
+			\XML{mission} & \Attr{type} & Beschreibt den Missionstyp, für den die \XML{variants} definiert werden. Aktuell werden nur die Missionstypen \texttt{harvest} und \texttt{sow} unterstützt.\\
+			\hline
+			\XML{variant} & \Attr{name} & Hier wird der Name einer neuen \XML{variant} definiert.\\
+			\hdashline
+			& \Attr{fruitTypes} & Hier werden die Fruchtarten definiert, für die diese \XML{variant} verwendet werden soll.\\
+			\hdashline
+			& \Attr{fruitTypeCategories} & Hier kann man die Fruchtkategorien angeben, für deren Früchte die \XML{variant} verwendet werden soll.
+			Die \Attr{fruitTypeCategory} \text{'EARTHFRUITS'} wird von der Mod registriert und enthält alle Erdfrüchte.\newline
+			Diese werden automatisch erkannt.\\
+		\end{tabular}\\
+		\newpage
+		Ab hier wird die XML vom Standardspiel geladen:\\
+		\begin{tabular}{c|c|p{9cm}}
+			\textbf{XML-Komponente} & \textbf{Attribute} & \textbf{Beschreibung}\\
+			\hline
+			\XML{mission} & \Attr{type} &
+			Hier wird der Missionstyp angegeben, für den die Fahrzeuge sind. Die Werte von \Attr{type} sind die Missionstypen aus dem Basisspiel.\newline
+			Werte: \texttt{harvest}, \texttt{plow}, \texttt{sow}, \texttt{weed}, \texttt{fertilize}, \texttt{spray}, \texttt{cultivate}, \texttt{mow\_bale}\\
+			\hline
+			\XML{group} & & Dies ist eine Fahrzeuggruppe, die bei einer Mission als Missionsfahrzeuge angeboten werden kann.\\
+			\hdashline
+			& \Attr{fieldSize} & Definiert ob die Fahrzeuge für ein kleines, mittleres oder großes Feld angeboten werden sollen.\newline
+			Werte: \texttt{small}, \texttt{medium}, \texttt{large}\\
+			\hdashline
+			& \Attr{variant} & Dieser Wert bestimmt, für welche Fruchtarten diese Gruppe ausgewählt werden kann. Hierzu trägt man den Namen der vorher registrierten \XML{variant} ein.\newline
+			\warning Damit die missionVehicles.xml auch mit dem Basisspiel ohne diesen Mod problemlos kompatibel ist sollten auf jeden Fall die \XML{variant} \texttt{GRAIN}, \texttt{MAIZE}, \texttt{SUGARBEET}, \texttt{POTATO}, \texttt{COTTON} und \texttt{SUGARCANE} für Ernte- \& Sä-Missionen vorhanden sein.\newline
+			\warning Für Mäh-Missionen müssen die \XML{variant} \texttt{HAY} und \texttt{SILAGE} vorhanden sein.\\
+			\hline
+			\XML{vehicle} & \Attr{filename} & Hier wird der Pfad zu einem einzelnen Missionsfahrzeug spezifiziert. Dieses  Missionsfahrzeug muss als \texttt{storeItem} registriert sein.
+		\end{tabular}
+
+	\section*{Schritt 2: Verlinkung der XML-Datei}
+		Öffnen Sie die \Datei{map.xml} ihrer Karte und suchen Sie dort den Eintrag \XML{missionVehicles}. Sollte dieser nicht vorhanden sein, fügen Sie die folgende Zeile in ihre \Datei{map.xml} ein:\\
+		\XML{<missionVehicles } \Attr{filename}\texttt{="}\texttt{"} \XML{/>}\\
+		Tragen Sie nun bei \Attr{filename} den Pfad zu ihrer eigenen \Datei{missionVehicles.xml} beginnend vom Speicherort ihrer \Datei{modDesc.xml} aus. Speichern Sie anschließend die Änderungen.
+	\newpage
+	\section*{Schritt 3: Selektiertes Aktivieren von Früchten (Optional)}
+		\warning Dieser Schritt kann Probleme bei den Missionsfahrzeugen verursachen wenn diese Mod nicht verwendet wird.\\
+		\\
+		Wenn Sie möchten, können Sie für manche Früchte die Missionen bereits aktivieren. Dies erreichen Sie indem Sie die \Datei{fruitTypes.xml} ihrer Karte öffnen und bei allen Früchten, bei denen die Missionen aktiv sein sollen, das Attribut \Attr{useForFieldJob} auf den Wert \texttt{true} setzen. Umgekehrt gilt: Um die Missionen für diese Früchte zu deaktivieren, setzen die den Wert auf \texttt{false}.\\
+		Ob Sie die Missionen aktivieren oder nicht bestimmt auch ob die NPC-Bauern diese Früchte auf ihren Feldern anbauen oder nicht.
+\end{document}
