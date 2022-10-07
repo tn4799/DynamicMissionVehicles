@@ -125,8 +125,8 @@
 
         <!-- sugarBeetMission -->
         <group fieldSize="small" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/grimme/ft300.xml" /> <!-- combine -->
-            <vehicle filename="vehicles/earthFruits/grimme/rootster604.xml" /> <!-- header -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/ft300.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/rootster604.xml" /> <!-- header -->
             <vehicle filename="$data/vehicles/claas/arion600/arion600.xml" > <!-- tractor -->
                 <configuration name="motor" id="4" />
                 <configuration name="wheel" id="5" />
@@ -137,20 +137,20 @@
         </group>
 
         <group fieldSize="medium" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/ropa/panther2.xml" /> <!-- combine -->
-            <vehicle filename="vehicles/earthFruits/ropa/rr6x45.xml" /> <!-- header -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/ropa/panther2.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/ropa/rr6x45.xml" /> <!-- header -->
             <vehicle filename="$data/vehicles/jcb/fastrac4220/fastrac4220.xml" /> <!-- tractor -->
             <vehicle filename="$data/vehicles/fliegl/tmk273/tmk273.xml" /> <!-- trailer -->
         </group>
 
         <group fieldSize="large" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/grimme/rexor6300.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/rexor6300.xml" /> <!-- combine -->
             <vehicle filename="$data/vehicles/mack/anthem/anthem.xml" /> <!-- tractor -->
             <vehicle filename="$data/vehicles/wilsonTrailer/pacesetter/pacesetter.xml" /> <!-- trailer -->
         </group>
         <group fieldSize="large" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/ropa/tiger6S.xml" /> <!-- combine -->
-            <vehicle filename="vehicles/earthFruits/ropa/rrXL9.xml"/> <!-- header -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/ropa/tiger6S.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/ropa/rrXL9.xml"/> <!-- header -->
             <vehicle filename="$data/vehicles/ropa/rrXLTrailer/rrXLTrailer.xml"/> <!-- headerTrailer -->
             <vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml" /> <!-- tractor -->
             <vehicle filename="$data/vehicles/krampe/sks30_150/sks30_150.xml"/> <!-- trailer -->
@@ -292,7 +292,7 @@
 
         <!-- potatoMission -->
         <group fieldSize="small" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/grimme/evo290.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/evo290.xml" /> <!-- combine -->
             <vehicle filename="$data/vehicles/masseyFerguson/series8S/series8S.xml" > <!-- tractor -->
                 <configuration name="motor" id="2" />
                 <configuration name="wheel" id="9" />
@@ -302,7 +302,7 @@
             <vehicle filename="$data/vehicles/rudolphSohn/dk280RL/dk280RL.xml" /> <!-- trailer -->
         </group>
         <group fieldSize="small" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/ropa/keiler2.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/ropa/keiler2.xml" /> <!-- combine -->
             <vehicle filename="$data/vehicles/fendt/vario700/vario700.xml" > <!-- tractor -->
                 <configuration name="motor" id="5" />
                 <configuration name="wheel" id="7" />
@@ -312,7 +312,7 @@
         </group>
 
         <group fieldSize="medium" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/grimme/ventor4150.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/ventor4150.xml" /> <!-- combine -->
             <vehicle filename="$data/vehicles/masseyFerguson/series6700S/series6700S.xml" > <!-- tractor -->
                 <configuration name="motor" id="5" />
             </vehicle>
@@ -320,7 +320,7 @@
         </group>
 
         <group fieldSize="large" variant="GROUNDFRUITS">
-            <vehicle filename="vehicles/earthFruits/grimme/ventor4150.xml" /> <!-- combine -->
+            <vehicle filename="FS22_MultiFruitHarvesterPack/vehicles/earthFruits/grimme/ventor4150.xml" /> <!-- combine -->
             <vehicle filename="$data/vehicles/mack/anthem/anthem.xml" /> <!-- tractor -->
             <vehicle filename="$data/vehicles/wilsonTrailer/pacesetter/pacesetter.xml" /> <!-- trailer -->
         </group>
