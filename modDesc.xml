@@ -10,38 +10,36 @@
 
     <description>
 		<en>
-<![CDATA[This mod guarantees that you always get the correct vehicles for sow and harvest missions for every fruit. This is also true for additional fruits.
+<![CDATA[This mod improves the selection of the mission vehicles.
 It also make sure, that custom fruits gets the correct tools.
-This is possible because with this mod modders can define on their own whick type of vehicles you will get for which fruit type. For the basegame it also gets a little mixed up because you get more different vehicles for earth fruits.
 It enables missions for every fruit type which has mission vehicles assigned.
-
+		
 The mod contains mission vehicles that work for every earth fruit.
-	
+		
 In the folder sdk you can find instructions on how to prepare your map for this mod.
 		
 For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.
-
+		
 Changelog:
 V1.0.1.0
- - moved harvesting vehicles into separate mod and added it as a dependency]]>
+- moved harvesting vehicles into separate mod and added it as a dependency]]>
 		</en>
 		<de>
-<![CDATA[Dieser Mod garantiert, dass Sie für jede Frucht immer die richtigen Fahrzeuge für Saat- und Ernteeinsätze erhalten. Dies gilt auch für Zusatzfruchtarten.
+<![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels.
 Außerdem bekommt man dadurch auch bei zusätzlich verbauten Früchten die passenden Fahrzeuge für die Missionen.
-Dies wird dadurch ermöglicht, dass Modder mithilfe von diesem Mod selbst festlegen können welche Art von Fahrzeugen man für welche Fruchtart bekommen soll. Auch das Basisspiel wird durch diesen Mod ein wenig aufgefrischt, da man für Erdfrüchte mehr verschiedene Fahrzeuge erhält.
 Damit man auch Missionen für zusätzliche Fruchtarten bekommt, aktiviert der Mod die Missionen für alle Früchte, für die es auch passende Missionsfahrzeuge gibt.
 
 Für Erdfrüchte enthält dieser Mod Missionsfahrzeuge, die für jede Art von Erdfrucht funktionieren.
-
+	
 Im Ordner sdk ist eine Anleitung, in der erklärt wird, wie man eine Map auf die Verwendung zusammen mit diesem Mod vorbereiten kann.
-
+	
 Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a> mit einem Issue.
-
+		
 Changelog:
 V1.0.1.0
- - Erntefahrzeuge in einen extra Mod verschoben und diesen als Anhängigkeit eingefügt]]>
+- Erntefahrzeuge in einen extra Mod verschoben und diesen als Abhängigkeit eingefügt]]>
 		</de>
-	</description>
+		</description>
 
 	<dependencies>
 		<dependency>FS22_MultiFruitHarvesterPack</dependency>
