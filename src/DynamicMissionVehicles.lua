@@ -7,7 +7,7 @@ DynamicMissionVehicles = {
 addModEventListener(DynamicMissionVehicles)
 
 function DynamicMissionVehicles:loadMapData(xmlFile)
-    local path = getXMLString(xmlFile, "map.missionVehicles#filename")
+	local path = getXMLString(xmlFile, "map.missionVehicles#filename")
 
 	if path ~= nil then
 		path = Utils.getFilename(path, g_currentMission.missionInfo.baseDirectory)
@@ -76,11 +76,6 @@ function DynamicMissionVehicles:loadVariants(xmlFilename)
 
             for _, fruitType in pairs(fruitTypes) do
 				DynamicMissionVehicles.variants[type][fruitType] = name
-				local fruit = g_fruitTypeManager:getFruitTypeByIndex(fruitType)
-
-				if type == "sow" then
-					print("added fruit type: ".. fruit.name .. "with variant " .. name)
-				end
             end
 
             j = j + 1
@@ -123,16 +118,14 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
 	end
 
     if xmlFile:hasProperty("missionVehicles.variants") then
-        return superFunc(self, xmlFilename)
+		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
-        local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
-        local returnValue = DynamicMissionVehicles.loadBackupMissionVehicles(self, path, g_modsDirectory)
-
-        return returnValue
+		local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
+        return DynamicMissionVehicles.loadVehicles(self, path, g_modsDirectory)
     end
 end
 
-function DynamicMissionVehicles:loadBackupMissionVehicles(xmlFilename, baseDirectory)
+function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
     local xmlFile = loadXMLFile("MissionVehicles", xmlFilename)
 
 	if xmlFile == 0 then
@@ -189,6 +182,9 @@ function DynamicMissionVehicles:loadBackupMissionVehicles(xmlFilename, baseDirec
 				if filename == nil then
 					Logging.error("(%s) Property filename must exist on each vehicle", xmlFilename)
 				else
+					if filename:split("/")[1] == "pdlc" then
+						filename = getAppBasePath() .. filename
+					end
 					local storeItem = g_storeManager:getItemByXMLFilename(filename)
 
 					if storeItem == nil then
