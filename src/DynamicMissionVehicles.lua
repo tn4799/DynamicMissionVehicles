@@ -119,6 +119,7 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
 
 	local _, _, isDlc, _ = Utils.removeModDirectory(xmlFilename)
 	if isDlc then
+		Logging.info("Load mission vehicles from DLC")
 		return superFunc(self, xmlFilename, ...)
 	end
 	if xmlFile:hasProperty("missionVehicles.variants") then
