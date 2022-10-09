@@ -39,11 +39,16 @@ Changelog:
 V1.0.1.0
 - Erntefahrzeuge in einen extra Mod verschoben und diesen als Abhängigkeit eingefügt]]>
 		</de>
-		</description>
+	</description>
 
 	<dependencies>
 		<dependency>FS22_MultiFruitHarvesterPack</dependency>
 	</dependencies>
+
+    <extraSourceFiles>
+        <sourceFile filename="src/DynamicMissionVehicles.lua"/>
+        <sourceFile filename="src/registerFruitTypeCategory.lua"/>
+    </extraSourceFiles>
 
     <iconFilename>modIcon.dds</iconFilename>
 
