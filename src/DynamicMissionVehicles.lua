@@ -108,7 +108,7 @@ function DynamicMissionVehicles:activateMissions()
 	end
 end
 
-function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
+function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
     local xmlFile = XMLFile.load("MissionVehicles", xmlFilename)
 
     if not xmlFile then
@@ -117,9 +117,14 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
 		return false
 	end
 
-    if xmlFile:hasProperty("missionVehicles.variants") then
+	local _, _, isDlc, _ = Utils.removeModDirectory(xmlFilename)
+	if isDlc then
+		return superFunc(self, xmlFilename, ...)
+	end
+	if xmlFile:hasProperty("missionVehicles.variants") then
 		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
+		Logging.info("No variants defined in %s. Loading Backup missionVehicles.xml", xmlFilename)
 		local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
         return DynamicMissionVehicles.loadVehicles(self, path, g_modsDirectory)
     end
@@ -182,9 +187,6 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 				if filename == nil then
 					Logging.error("(%s) Property filename must exist on each vehicle", xmlFilename)
 				else
-					if filename:split("/")[1] == "pdlc" then
-						filename = getAppBasePath() .. filename
-					end
 					local storeItem = g_storeManager:getItemByXMLFilename(filename)
 
 					if storeItem == nil then
