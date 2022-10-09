@@ -117,6 +117,7 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
 		return false
 	end
 
+		Logging.info("Load mission vehicles from DLC")
     if xmlFile:hasProperty("missionVehicles.variants") then
 		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
