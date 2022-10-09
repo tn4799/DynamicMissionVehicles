@@ -108,7 +108,7 @@ function DynamicMissionVehicles:activateMissions()
 	end
 end
 
-function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
+function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
     local xmlFile = XMLFile.load("MissionVehicles", xmlFilename)
 
     if not xmlFile then
@@ -117,10 +117,15 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename)
 		return false
 	end
 
+	local _, _, isDLC, _ = Utils.removeModDirectory(xmlFilename)
+	if isDLC then
 		Logging.info("Load mission vehicles from DLC")
+		return superFunc(self, xmlFilename, ...)
+	end
     if xmlFile:hasProperty("missionVehicles.variants") then
 		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
+		Logging.info("%s has no variants defined. Loading Backup instead.", xmlFilename)
 		local path = Utils.getFilename(DynamicMissionVehicles.fallback_missionVehicles, g_modsDirectory)
         return DynamicMissionVehicles.loadVehicles(self, path, g_modsDirectory)
     end
