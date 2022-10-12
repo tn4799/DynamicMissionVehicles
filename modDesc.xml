@@ -15,11 +15,11 @@ It also make sure, that custom fruits gets the correct tools.
 It enables missions for every fruit type which has mission vehicles assigned.
 
 For missions with earth fruits, the Multi Fruit Harvester Pack provides vehicles that can detect which earth fruits are installed on a map. The vehicles from the pack are offered as mission vehicles.
-		
+
 In the folder sdk you can find instructions on how to prepare your map for this mod.
-		
+
 For support and enhancement requests please open an issue over on <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.
-		
+
 Changelog:
 V1.0.1.0
 - moved harvesting vehicles into separate mod and added it as a dependency
@@ -33,11 +33,11 @@ Außerdem bekommt man dadurch auch bei zusätzlich verbauten Früchten die passe
 Damit man auch Missionen für zusätzliche Fruchtarten bekommt, aktiviert der Mod die Missionen für alle Früchte, für die es auch passende Missionsfahrzeuge gibt.
 
 Für Missionen mit Erdfrüchten liefert das Multifrucht Ernter Paket Fahrzeuge, die selbst erkennen welche Erdfrüchte auf einer Karte verbaut sind. Die Fahrzeuge aus dem Pack werden als Missionsfahrzeuge angeboten.
-	
+
 Im Ordner sdk ist eine Anleitung, in der erklärt wird, wie man eine Map auf die Verwendung zusammen mit diesem Mod vorbereiten kann.
-	
+
 Für Supportanfragen und Verbesserungsvorschläge meldet euch bitte auf <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a> mit einem Issue.
-		
+
 Changelog:
 V1.0.1.0
 - Erntefahrzeuge in einen extra Mod verschoben und diesen als Abhängigkeit eingefügt
