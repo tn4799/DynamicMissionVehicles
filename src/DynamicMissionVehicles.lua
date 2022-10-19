@@ -101,8 +101,10 @@ function DynamicMissionVehicles:activateMissions()
 		end
 
 		if activateMission then
+			Logging.info("Activate mission for %s", fruitType.name)
 			fruitType.useForFieldJob = true
 		else
+			Logging.info("Deactivate mission for %s", fruitType.name)
 			fruitType.useForFieldJob = false
 		end
 	end
@@ -183,7 +185,7 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 					break
 				end
 
-				local filename = Utils.getFilename(getXMLString(xmlFile, vehicleKey .. "#filename"), baseDirectory or g_currentMission.baseDirectory)
+				local filename = Utils.getFilename(getXMLString(xmlFile, vehicleKey .. "#filename"), baseDirectory or g_modsDirectory)
 
 				if filename == nil then
 					Logging.error("(%s) Property filename must exist on each vehicle", xmlFilename)
