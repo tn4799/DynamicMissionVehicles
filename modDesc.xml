@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="69">
     <author>tn4799</author>
-    <version>1.1.0.0</version>
+    <version>1.1.0.1</version>
 
     <title>
         <en>Dynamic Mission Vehicles</en>
@@ -25,7 +25,10 @@ V1.0.1.0
 - moved harvesting vehicles into separate mod and added it as a dependency
 
 V1.1.0.0
-- added support for mission vehicles from mod folder and dlcs]]>
+- added support for mission vehicles from mod folder and dlcs
+
+V1.1.0.1
+ - fixed a bug when using a mission vehicle from the modFolder and the missionVehicles.xml is inside the map]]>
 		</en>
 		<de>
 <![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels.
@@ -43,7 +46,10 @@ V1.0.1.0
 - Erntefahrzeuge in einen extra Mod verschoben und diesen als Abhängigkeit eingefügt
 
 V1.1.0.0
-- Unterstützung für Missionsfahrzeuge aus Mods und Dlcs zu laden hinzugefügt]]>
+- Unterstützung für Missionsfahrzeuge aus Mods und Dlcs zu laden hinzugefügt
+
+V1.1.0.1
+ - Bug behoben wenn man ein Fahrzeug aus dem Modordner als Missionsfahrzeug verwendet hat, die missionVehicles.xml aber in der map ist]]>
 		</de>
 	</description>
 
