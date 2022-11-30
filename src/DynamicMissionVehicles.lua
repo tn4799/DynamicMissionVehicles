@@ -1,7 +1,10 @@
 DynamicMissionVehicles = {
     variants = {},
     modName = g_currentModName,
-    fallback_missionVehicles = g_currentModName .. "/xml/missionVehicles.xml"
+    fallback_missionVehicles = g_currentModName .. "/xml/missionVehicles.xml",
+	modsToIgnoreMissionVehicles = {
+		"FS22_precisionFarming"
+	}
 }
 
 addModEventListener(DynamicMissionVehicles)
@@ -120,11 +123,13 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
 	end
 
 	local _, _, isDLC, _ = Utils.removeModDirectory(xmlFilename)
+	local modName, _ = Utils.getModNameAndBaseDirectory(xmlFilename)
 	if isDLC then
 		Logging.info("Load mission vehicles from DLC")
 		return superFunc(self, xmlFilename, ...)
 	end
-    if xmlFile:hasProperty("missionVehicles.variants") then
+
+    if xmlFile:hasProperty("missionVehicles.variants") or DynamicMissionVehicles.shouldModBeIgnored(modName) then
 		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
 		Logging.info("%s has no variants defined. Loading Backup instead.", xmlFilename)
@@ -271,6 +276,16 @@ MissionManager.loadMissionVehicles = Utils.overwrittenFunction(MissionManager.lo
 -- supported missionTypes
 HarvestMission.getVehicleVariant = Utils.overwrittenFunction(HarvestMission.getVehicleVariant, DynamicMissionVehicles.getVehicleVariant)
 SowMission.getVehicleVariant = Utils.overwrittenFunction(SowMission.getVehicleVariant, DynamicMissionVehicles.getVehicleVariant)
+
+function DynamicMissionVehicles.shouldModBeIgnored(modName)
+	for _, modToIgnore in pairs(DynamicMissionVehicles.modsToIgnoreMissionVehicles) do
+		if modToIgnore == modName then
+			return true
+		end
+	end
+
+	return false
+end
 
 function table.combine(t1, t2)
     local t = {}
