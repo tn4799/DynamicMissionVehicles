@@ -6,6 +6,7 @@
     <title>
         <en>Dynamic Mission Vehicles</en>
         <de>Dynamische Missionsfahrzeuge</de>
+	<pl>Dynamiczne pojazdy w kontraktach</pl>
     </title>
 
     <description>
@@ -51,6 +52,28 @@ V1.1.0.0
 V1.1.0.1
  - Bug behoben wenn man ein Fahrzeug aus dem Modordner als Missionsfahrzeug verwendet hat, die missionVehicles.xml aber in der map ist]]>
 		</de>
+	    	<pl>
+<![CDATA[Ten mod poprawia wybór pojazdów w kontraktach.
+Upewnia się również, że niestandardowe owoce otrzymują odpowiednie narzędzia.
+Umożliwia wykonywanie misji dla każdego typu owocu, który ma przypisane pojazdy misyjne.
+
+W przypadku misji z owocami ziemnymi, zestaw Multi Fruit Harvester Pack dostarcza pojazdy, które potrafią wykrywać, które owoce ziemne są zainstalowane na mapie. Pojazdy z tego zestawu są oferowane jako pojazdy misyjne.
+
+W folderze "sdk" znajdziesz instrukcje dotyczące przygotowania mapy do tego moda.
+
+Dla wsparcia i wniosków o ulepszenia prosimy otworzyć zgłoszenie na <a href="https://github.com/tn4799/DynamicMissionVehicles/issues">Github</a>.
+
+Changelog:
+V1.0.1.0
+- przeniesiono pojazdy do zbiorczego modu i dodano go jako zależność
+
+V1.1.0.0
+- dodano obsługę pojazdów misyjnych z folderu modów i DLC
+
+V1.1.0.1
+ - naprawiono błąd przy użyciu pojazdu misyjnego z folderu modów, a plik missionVehicles.xml znajduje się wewnątrz mapy
+
+
 	</description>
 
 	<dependencies>
