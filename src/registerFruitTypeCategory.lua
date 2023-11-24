@@ -6,13 +6,12 @@ function register()
 
     for _, fruitTypeData in pairs(g_fruitTypeManager.fruitTypes) do
         if fruitTypeData ~= nil then
-            local minHarvestingGrowthState = fruitTypeData.minHarvestingGrowthState
             local minPreparingGrowthState = fruitTypeData.minPreparingGrowthState
             local preparedGrowthState = fruitTypeData.preparedGrowthState
             local name = fruitTypeData.name
 
             -- check if fruit is needs herb removement to be harvested
-            if minHarvestingGrowthState >= 9 and minPreparingGrowthState ~= -1 and preparedGrowthState ~= -1 and name ~= "SUGARCANE" then
+            if minPreparingGrowthState ~= -1 and preparedGrowthState ~= -1 and name ~= "SUGARCANE" then
 
                 -- add fruitType to new fruitTypeCategory
                 local fruitType = g_fruitTypeManager:getFruitTypeByName(name)
