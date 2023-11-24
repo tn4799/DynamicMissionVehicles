@@ -190,7 +190,14 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 					break
 				end
 
-				local filename = Utils.getFilename(getXMLString(xmlFile, vehicleKey .. "#filename"), baseDirectory or g_modsDirectory)
+				local filename = getXMLString(xmlFile, vehicleKey .. "#filename")
+				local modName = getXMLString(xmlFile, vehicleKey .. "#modName")
+
+				if modName ~= nil and modName ~= "" then
+					filename = modName .. "/" .. filename
+				end
+
+				filename = Utils.getFilename(filename, baseDirectory or g_modsDirectory)
 
 				if filename == nil then
 					Logging.error("(%s) Property filename must exist on each vehicle", xmlFilename)
