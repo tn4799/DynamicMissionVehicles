@@ -82,7 +82,9 @@
 			\warning Damit die missionVehicles.xml auch mit dem Basisspiel ohne diesen Mod problemlos kompatibel ist sollten auf jeden Fall die \XML{variant} \texttt{GRAIN}, \texttt{MAIZE}, \texttt{SUGARBEET}, \texttt{POTATO}, \texttt{COTTON} und \texttt{SUGARCANE} für Ernte- \& Sä-Missionen vorhanden sein.\newline
 			\warning Für Mäh-Missionen müssen die \XML{variant} \texttt{HAY} und \texttt{SILAGE} vorhanden sein.\\
 			\hline
-			\XML{vehicle} & \Attr{filename} & Hier wird der Pfad zu einem einzelnen Missionsfahrzeug spezifiziert. Dieses  Missionsfahrzeug muss als \texttt{storeItem} registriert sein.
+			\XML{vehicle} & \Attr{filename} & Hier wird der Pfad zu einem einzelnen Missionsfahrzeug spezifiziert. Dieses  Missionsfahrzeug muss als \texttt{storeItem} registriert sein.\\
+			\hdashline
+			& \Attr{modName} & Der Name des Mods, aus dem das Fahrzeug kommt. Dieser kann für Fahrzeuge des Basisspiels weggelassen werden. Für Modfahrzeuge ist dieser Eintrag jedoch dringend notwendig.
 		\end{tabular}
 
 	\section*{Schritt 2: Verlinkung der XML-Datei}
