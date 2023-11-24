@@ -184,6 +184,7 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 			local k = 0
 
 			while true do
+				::continue::
 				local vehicleKey = string.format("%s.vehicle(%d)", groupKey, k)
 
 				if not hasXMLProperty(xmlFile, vehicleKey) then
@@ -195,6 +196,12 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 
 				if modName ~= nil and modName ~= "" then
 					filename = modName .. "/" .. filename
+				end
+
+				if (modName == nil or modName == "") and not filename:startsWith("$") then
+					Logging.Warning("Cannot load missionVehicle that is neither part of the baseGame nor part of a mod.")
+					k = k + 1
+					goto continue
 				end
 
 				filename = Utils.getFilename(filename, baseDirectory or g_modsDirectory)
