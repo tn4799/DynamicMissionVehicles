@@ -274,7 +274,7 @@ function DynamicMissionVehicles:getVehicleVariant(superFunc)
 	elseif self.type.name == "sow"  then
 		fruitType = self.fruitType
 	else
-		Logging.error("MissionType is not supported by DynamicMissionVehicles")
+		Logging.devWarning("MissionType is not supported by DynamicMissionVehicles")
 		return superFunc(self)
 	end
 
