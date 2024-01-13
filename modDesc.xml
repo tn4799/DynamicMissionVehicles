@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="75">
+<modDesc descVersion="79">
     <author>tn4799</author>
     <version>1.2.0.0</version>
 
     <title>
         <en>Dynamic Mission Vehicles</en>
         <de>Dynamische Missionsfahrzeuge</de>
-	<pl>Dynamiczne pojazdy w kontraktach</pl>
     </title>
 
     <description>
@@ -71,7 +70,7 @@ V1.2.0.0
         <sourceFile filename="src/registerFruitTypeCategory.lua"/>
     </extraSourceFiles>
 
-    <iconFilename>modIcon.dds</iconFilename>
+    <iconFilename>icon_DynamicMissionVehicles.dds</iconFilename>
 
     <multiplayer supported="true"/>
 </modDesc>
