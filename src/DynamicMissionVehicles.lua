@@ -199,7 +199,7 @@ function DynamicMissionVehicles:loadVehicles(xmlFilename, baseDirectory)
 				end
 
 				if (modName == nil or modName == "") and not filename:startsWith("$") then
-					Logging.Warning("Cannot load missionVehicle that is neither part of the baseGame nor part of a mod.")
+					Logging.warning("Cannot load missionVehicle that is neither part of the baseGame nor part of a mod.")
 					k = k + 1
 					goto continue
 				end
