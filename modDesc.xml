@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="79">
     <author>tn4799</author>
-    <version>1.2.0.0</version>
+    <version>1.2.0.1</version>
 
     <title>
         <en>Dynamic Mission Vehicles</en>
@@ -29,10 +29,13 @@ V1.1.0.0
 
 V1.1.0.1
  - fixed a bug when using a mission vehicle from the modFolder and the missionVehicles.xml is inside the map
- 
+
 V1.2.0.0
  - Now the only factor that determines a earth fruit is the fruit preparation. Exception: Sugarcane
- - filename-Entries in the missionVehicles.xml are now consistent again with the standard structure. To use Modvehicles, add a tag with the modname to the entry]]>
+ - filename-Entries in the missionVehicles.xml are now consistent again with the standard structure. To use Modvehicles, add a tag with the modname to the entry
+
+V1.2.0.1
+- Fixed that the game freezes when loading a savegame with the platinum addon and this mod]]>
 		</en>
 		<de>
 <![CDATA[Dieser Mod verbessert die Auswahl der Missionsfahrzeuge des Spiels.
@@ -54,10 +57,13 @@ V1.1.0.0
 
 V1.1.0.1
  - Bug behoben wenn man ein Fahrzeug aus dem Modordner als Missionsfahrzeug verwendet hat, die missionVehicles.xml aber in der map ist
- 
+
 V1.2.0.0
  - Von nun an wird jede Fruchtart mit Kraut entfernen als Erdfrucht gezählt. Ausnahme: Zuckerrohr
- - filename-Einträge in der missionVehicles.xml sind nun wieder konsistent mit dem Standardaufbau. Um Modfahrzeuge zu verwenden, muss nun ein Tag mit dem Modnamen zum Eintrag hinzugefügt werden.]]>
+ - filename-Einträge in der missionVehicles.xml sind nun wieder konsistent mit dem Standardaufbau. Um Modfahrzeuge zu verwenden, muss nun ein Tag mit dem Modnamen zum Eintrag hinzugefügt werden.
+
+V1.2.0.1
+ - Fehler behoben, bei dem das Spiel einfriert]]>
 		</de>
 	</description>
 
