@@ -129,7 +129,12 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
 		return superFunc(self, xmlFilename, ...)
 	end
 
-    if xmlFile:hasProperty("missionVehicles.variants") or DynamicMissionVehicles.shouldModBeIgnored(modName) then
+	if DynamicMissionVehicles.shouldModBeIgnored(modName) then
+		Logging.info("%s is ignored by DynamicMissionVehicles. Proceeding with default behavior.", modName)
+		superFunc(self, xmlFilename, ...)
+	end
+
+    if xmlFile:hasProperty("missionVehicles.variants") then
 		return DynamicMissionVehicles.loadVehicles(self, xmlFilename)
     else
 		Logging.info("%s has no variants defined. Loading Backup instead.", xmlFilename)
