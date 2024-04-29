@@ -3,7 +3,7 @@ DynamicMissionVehicles = {
     modName = g_currentModName,
     fallback_missionVehicles = g_currentModName .. "/xml/missionVehicles.xml",
 	modsToIgnoreMissionVehicles = {
-		"FS22_precisionFarming"
+		FS22_precisionFarming = true
 	}
 }
 
@@ -131,7 +131,7 @@ function DynamicMissionVehicles:loadMissionVehicles(superFunc, xmlFilename, ...)
 
 	if DynamicMissionVehicles.shouldModBeIgnored(modName) then
 		Logging.info("%s is ignored by DynamicMissionVehicles. Proceeding with default behavior.", modName)
-		superFunc(self, xmlFilename, ...)
+		return superFunc(self, xmlFilename, ...)
 	end
 
     if xmlFile:hasProperty("missionVehicles.variants") then
@@ -297,13 +297,7 @@ HarvestMission.getVehicleVariant = Utils.overwrittenFunction(HarvestMission.getV
 SowMission.getVehicleVariant = Utils.overwrittenFunction(SowMission.getVehicleVariant, DynamicMissionVehicles.getVehicleVariant)
 
 function DynamicMissionVehicles.shouldModBeIgnored(modName)
-	for _, modToIgnore in pairs(DynamicMissionVehicles.modsToIgnoreMissionVehicles) do
-		if modToIgnore == modName then
-			return true
-		end
-	end
-
-	return false
+	return DynamicMissionVehicles.modsToIgnoreMissionVehicles[modName] or false
 end
 
 function table.combine(t1, t2)
